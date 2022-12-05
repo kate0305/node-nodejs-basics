@@ -1,10 +1,10 @@
-import { __dirname, errMessage } from './utils.js';
+import { getPath, errMessage } from '../utils.js';
 import { join } from 'node:path';
 import { rm } from 'node:fs/promises';
 
 const remove = async () => {
   try {
-    const pathFile = join(__dirname, 'files', 'fileToRemove.txt');
+    const pathFile = join(getPath(import.meta.url), 'files', 'fileToRemove.txt');
     await rm(pathFile);
   } catch (error) {
     throw new Error(errMessage);

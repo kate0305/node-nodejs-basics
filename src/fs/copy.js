@@ -1,10 +1,10 @@
-import { __dirname, errMessage } from './utils.js';
+import { getPath, errMessage } from '../utils.js';
 import { join } from 'node:path';
 import { copyFile, readdir, mkdir } from 'node:fs/promises';
 
 const copy = async () => {
-  const pathDir = join(__dirname, 'files');
-  const pathCopyDir = join(__dirname, 'files_copy');
+  const pathDir = join(getPath(import.meta.url), 'files');
+  const pathCopyDir = join(getPath(import.meta.url), 'files_copy');
 
   try {
     await mkdir(pathCopyDir);
