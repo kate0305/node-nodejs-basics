@@ -6,6 +6,7 @@ const remove = async () => {
   try {
     const pathFile = join(getPath(import.meta.url), 'files', 'fileToRemove.txt');
     await rm(pathFile);
+    console.log('File deleted!')
   } catch (error) {
     throw new Error(errMessage);
   };
